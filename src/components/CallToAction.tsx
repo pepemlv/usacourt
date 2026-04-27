@@ -18,10 +18,10 @@ export default function CallToAction() {
             <ArrowRight className="mr-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             Request a Quote
           </button>
-          <button className="px-10 py-5 bg-transparent border-3 border-white text-white rounded-lg hover:bg-white hover:text-[#B31942] transition-all font-bold text-xl flex items-center shadow-2xl">
+          <a href="tel:7046261734" className="px-10 py-5 bg-transparent border-3 border-white text-white rounded-lg hover:bg-white hover:text-[#B31942] transition-all font-bold text-xl flex items-center shadow-2xl">
             <Phone className="mr-3 h-6 w-6" />
             Speak to an Expert
-          </button>
+          </a>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">

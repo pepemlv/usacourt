@@ -1,10 +1,18 @@
 export default function Leadership() {
+  type Leader = {
+    name: string;
+    role: string;
+    image: string;
+    bio: string;
+    organization?: string;
+  };
+
   const partners = [
     { name: 'USA Court Builder', image: '/pictures/courtbuilder.jfif' },
     { name: 'American Sports ASBA Builder', image: '/pictures/americansba.png' },
     { name: 'Wilkison Partners', image: '/pictures/WilkisonLogo.jpg' }
   ];
-  const leaders = [
+  const leaders: Leader[] = [
     {
       name: 'Tim Wilkison',
       role: 'Strategic Partner',

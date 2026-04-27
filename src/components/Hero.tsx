@@ -1,10 +1,8 @@
-import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const [isImageVisible, setIsImageVisible] = useState(false);
   const [isHeadingVisible, setIsHeadingVisible] = useState(false);
-  const [areButtonsVisible, setAreButtonsVisible] = useState(false);
 
   useEffect(() => {
     //hero text character
@@ -15,15 +13,9 @@ export default function Hero() {
     const imageTimer = setTimeout(() => {
       setIsImageVisible(true);
     }, 1000);
-    //hero boutons
-    const buttonsTimer = setTimeout(() => {
-      setAreButtonsVisible(true);
-    }, 6000);
-
     return () => {
       clearTimeout(headingTimer);
       clearTimeout(imageTimer);
-      clearTimeout(buttonsTimer);
     };
   }, []);
 
@@ -74,7 +66,7 @@ export default function Hero() {
         />
 
         {isHeadingVisible && (
-          <h2 className="absolute top-[30vh] left-1/2 w-full max-w-sm -translate-x-1/2 -translate-y-1/2 text-white md:static md:mx-auto md:max-w-none md:translate-x-0 md:translate-y-0 md:mt-2 md:mb-6 md:max-[700px]:mt-1 md:max-[700px]:mb-3 [@media(max-height:575px)]:mt-0 [@media(max-height:575px)]:mb-2">
+          <h2 className="absolute top-[38vh] left-1/2 w-full max-w-sm -translate-x-1/2 -translate-y-1/2 text-white md:static md:mx-auto md:max-w-none md:translate-x-0 md:translate-y-0 md:mt-2 md:mb-6 md:max-[700px]:mt-1 md:max-[700px]:mb-3 [@media(max-height:575px)]:mt-0 [@media(max-height:575px)]:mb-2">
             <span className="block text-2xl font-bold md:text-5xl md:max-[700px]:text-3xl [@media(max-height:575px)]:text-2xl">
               Authentic Surface.
             </span>

@@ -1,6 +1,10 @@
 import { ArrowRight, Phone } from 'lucide-react';
 
-export default function CourtCategories() {
+type CourtCategoriesProps = {
+  onRequestQuote: () => void;
+};
+
+export default function CourtCategories({ onRequestQuote }: CourtCategoriesProps) {
   const categories = [
     {
       title: 'Tennis Court Surfaces',
@@ -40,14 +44,14 @@ export default function CourtCategories() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="group flex items-center rounded-lg bg-[#B31942] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#8B1538]">
+            <button onClick={onRequestQuote} className="group flex items-center rounded-lg bg-[#B31942] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#8B1538]">
               <ArrowRight className="mr-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
               Request a Quote
             </button>
-            <button className="flex items-center rounded-lg border-2 border-white bg-transparent px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-white hover:text-[#0A3161]">
+            <a href="tel:7046261734" className="flex items-center rounded-lg border-2 border-white bg-transparent px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-white hover:text-[#0A3161]">
               <Phone className="mr-3 h-5 w-5" />
               Speak to an Expert
-            </button>
+            </a>
           </div>
 
        

@@ -59,22 +59,18 @@ const courtTypes = [
   }
 ];
 
-export default function ExploreOurCourts() {
+type ExploreOurCourtsProps = {
+  onRequestQuote: () => void;
+};
+
+export default function ExploreOurCourts({ onRequestQuote }: ExploreOurCourtsProps) {
   return (
     <section
       id="explore-courts"
-      className="bg-white py-24"
+      className="bg-white py-4"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-            Explore Our Courts
-          </h2>
-          <p className="mx-auto max-w-3xl text-xl text-gray-700">
-            From authentic red clay to hard courts, pickleball, and padel
-            facilities, we build courts that exceed expectations.
-          </p>
-        </div>
+  
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {courtTypes.map((court, index) => (
@@ -141,7 +137,7 @@ export default function ExploreOurCourts() {
           <p className="mb-6 text-lg text-gray-700">
             Not sure which surface is right for you? Let our experts guide you.
           </p>
-          <button className="rounded-lg bg-[#B31942] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#8B1538]">
+          <button onClick={onRequestQuote} className="rounded-lg bg-[#B31942] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all hover:bg-[#8B1538]">
             Schedule a Consultation
           </button>
         </div>

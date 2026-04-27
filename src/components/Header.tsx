@@ -1,7 +1,11 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-export default function Header() {
+type HeaderProps = {
+  onRequestQuote: () => void;
+};
+
+export default function Header({ onRequestQuote }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -60,7 +64,7 @@ export default function Header() {
             }`}>
              American Red Clay
             </button>
-            <button className={`px-6 py-2 rounded transition-all font-medium ${
+            <button onClick={onRequestQuote} className={`px-6 py-2 rounded transition-all font-medium ${
               isScrolled
                 ? 'bg-white text-[#0A3161] hover:bg-gray-100'
                 : 'bg-white text-[#0A3161] hover:bg-gray-100'
@@ -73,7 +77,7 @@ export default function Header() {
             <button className="rounded border border-white px-2.5 py-1.5 text-xs font-medium text-white transition-all hover:bg-white hover:text-[#0A3161] sm:px-4 sm:py-2 sm:text-sm">
               Contractor Access
             </button>
-            <button className="rounded bg-white px-2.5 py-1.5 text-xs font-medium text-[#0A3161] transition-all hover:bg-gray-100 sm:px-4 sm:py-2 sm:text-sm">
+            <button onClick={onRequestQuote} className="rounded bg-white px-2.5 py-1.5 text-xs font-medium text-[#0A3161] transition-all hover:bg-gray-100 sm:px-4 sm:py-2 sm:text-sm">
               Quote
             </button>
 
