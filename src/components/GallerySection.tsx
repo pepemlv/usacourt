@@ -1,3 +1,5 @@
+import BeforeAfter from './BeforeAfter';
+
 const galleryItems = [
   {
     title: 'Championship Detail',
@@ -58,6 +60,10 @@ export default function GallerySection() {
                   >
                     <source src={item.src} type="video/mp4" />
                   </video>
+                ) : item.title === 'Surface In Motion' ? (
+                  <div className="h-full w-full">
+                    <BeforeAfter beforeSrc="/pictures/galery4.png" afterSrc="/pictures/galery5.png" alt="Surface before and after" />
+                  </div>
                 ) : (
                   <img
                     src={item.src}

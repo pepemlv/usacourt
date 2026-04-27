@@ -10,12 +10,12 @@ export default function Hero() {
     //hero text character
     const headingTimer = setTimeout(() => {
       setIsHeadingVisible(true);
-    }, 5000);
-//herotext image
+    }, 6000);
+    //herotext image
     const imageTimer = setTimeout(() => {
       setIsImageVisible(true);
     }, 1000);
-//hero boutons
+    //hero boutons
     const buttonsTimer = setTimeout(() => {
       setAreButtonsVisible(true);
     }, 6000);
@@ -27,30 +27,50 @@ export default function Hero() {
     };
   }, []);
 
+  // carousel state
+  const images = [
+
+
+    '/pictures/hardcore.png',
+    '/pictures/usahero.jpg',
+    '/pictures/usahero1.jpg',
+    '/pictures/usahero2.jpg',
+    '/pictures/usahero3.jpg',
+
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
       id="home"
       className="relative flex h-[75vh] items-center justify-center overflow-hidden pt-20 md:max-[700px]:h-[68vh] md:max-[700px]:items-start md:max-[700px]:pt-14 [@media(max-height:675px)]:h-screen"
     >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/images/videos/hero.mp4" type="video/mp4" />
-      </video>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`Hero background ${i + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${i === current ? 'opacity-100' : 'opacity-0'
+            }`}
+        />
+      ))}
 
-      <div className="absolute inset-0 bg-[#92ACDE]/45"></div>
+      <div className="absolute inset-0 bg-[#92ACDE]/15"></div>
 
       <div className="relative z-10 h-full w-full text-center px-6 md:h-auto md:w-auto md:max-[700px]:pt-4 [@media(max-height:575px)]:pt-2">
         <img
           src="/pictures/heroText.png"
           alt="Hero Main Title"
-          className={`absolute top-[15vh] left-1/2 h-auto w-full max-w-sm -translate-x-1/2 -translate-y-1/2 transition-opacity duration-[3000ms] md:static md:mx-auto md:w-full md:max-w-full md:translate-x-0 md:translate-y-0 md:max-[700px]:max-w-[340px] [@media(max-height:575px)]:max-w-[280px] ${
-            isImageVisible ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute top-[15vh] left-1/2 h-auto w-full max-w-sm -translate-x-1/2 -translate-y-1/2 transition-opacity duration-[3000ms] md:static md:mx-auto md:w-full md:max-w-full md:translate-x-0 md:translate-y-0 md:max-[700px]:max-w-[340px] [@media(max-height:575px)]:max-w-[280px] ${isImageVisible ? 'opacity-100' : 'opacity-0'
+            }`}
         />
 
         {isHeadingVisible && (
